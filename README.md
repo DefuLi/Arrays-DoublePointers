@@ -1,5 +1,5 @@
 # Arrays-DoublePointers
-在java中，提供了静态数组和动态数组两种。静态数组需要提前初始化好，并且初始化后长度不能被改变了，比如int[] temp = new int\[7];也可以使用动态数组List<Integer> temp = new ArrayList<>();<br>
+在java中，提供了静态数组和动态数组两种。静态数组需要提前初始化好，并且初始化后长度不能被改变了，比如int\[] temp = new int\[7];也可以使用动态数组List<Integer> temp = new ArrayList<>();<br>
 
 ## 对角线遍历
 给定一个含有 M x N 个元素的矩阵（M 行，N 列），请以对角线遍历的顺序返回这个矩阵中的所有元素。<br>

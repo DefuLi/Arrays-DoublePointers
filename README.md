@@ -254,3 +254,40 @@ public class RemoveElement {
     }
 }
 ```
+## 双指针技巧-移动零
+给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。<br>
+```java
+输入: [0,1,0,3,12]
+输出: [1,3,12,0,0]
+```
+这道题需要注意把零元素移到最后并且非零元素的顺序不能改变。一开始我使用两个指针start和end，同时从前往后和从后往前遍历，如果start指向元素为零且end指向元素不为零，则交换，接着start++，end--。但是这样只能把零元素放到数组最后，改变了非零元素的顺序。<br>
+正确的解法是同样使用两个指针，i指针用于迭代数组每个元素，另一个指针用于记录非零元素的个数。我们使用flag指针记录非零元素个数，首先判断当前元素是否为零，如果为零flag不变，i继续迭代；如果不为零，则nums\[flag] = nums[i];flag++;操作。
+```java
+package practice;
+
+import java.util.Arrays;
+
+// 移动零
+public class MoveZeroes {
+    public static void main(String[] args) {
+        int[] nums = {0, 1, 0, 3, 12};
+        MoveZeroes obj = new MoveZeroes();
+        obj.moveZeroes(nums);
+    }
+
+    public void moveZeroes(int[] nums) {
+        if(nums.length == 0 || nums.length == 1) return;
+        int flag = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] != 0) {
+                nums[flag] = nums[i];
+                flag++;
+            }
+        }
+        for (int i = flag; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+        System.out.println(Arrays.toString(nums));
+    }
+}
+```
